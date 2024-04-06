@@ -32,7 +32,7 @@ const Dashboard = () => {
     }
     return (
         <Box>
-            <Box bg='orange.500' w='100%' position="fixed" top="0" zIndex="1" p={4} color='white'>
+            <Box bg='orange.500' w='100%' position="sticky" top="0" zIndex="1" p={4} color='white'>
                 <Flex alignItems="center" gap="2">
 
                     <Button size='md' fontSize="1.3rem" ref={btnRef} color="white" background="transparent" _hover={{

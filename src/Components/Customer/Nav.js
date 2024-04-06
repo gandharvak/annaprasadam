@@ -42,7 +42,7 @@ const Nav = () => {
 
   return (
     <Box p="4" mb="6" shadow="md" position="sticky" top="0" zIndex="1" bg="white">
-      <Flex>
+      <Flex className='container'>
         <Heading color="orange.500" className="flex-fill">Anna<Text as="span" color="orange.400">Prasadam</Text></Heading>
         <Text display={{ base: "none", md: "block" }} className='lead fw-normal'>Welcome, <Text as="span" color="orange.500">{name}</Text></Text>
         <BiLogOut onClick={logout} color='red' _hover={{color:"black"}} className='fs-4' />

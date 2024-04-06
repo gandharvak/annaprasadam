@@ -81,13 +81,15 @@ exports.allMenu = async (req, res) => {
         const data = await owner.find({});
         let resArray = []
         data.forEach((element) => {
-            resArray.push({
-                menu: element.menu,
-                price: element.price,
-                name: element.name,
-                email: element.email,
-                stars: element.rating
-            });
+            if(element.menu!==""){
+                resArray.push({
+                    menu: element.menu,
+                    price: element.price,
+                    name: element.name,
+                    email: element.email,
+                    stars: element.rating
+                });
+            }
         })
         if (data) {
             res.send({ error: "false", message: "Data found", data: resArray });
