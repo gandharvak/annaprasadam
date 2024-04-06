@@ -42,9 +42,9 @@ const Nav = () => {
 
   return (
     <Box p="4" mb="6" shadow="md" position="sticky" top="0" zIndex="1" bg="white">
-      <Flex className='container'>
+      <Flex className='container' gap="3" alignItems="center">
         <Heading color="orange.500" className="flex-fill">Anna<Text as="span" color="orange.400">Prasadam</Text></Heading>
-        <Text display={{ base: "none", md: "block" }} className='lead fw-normal'>Welcome, <Text as="span" color="orange.500">{name}</Text></Text>
+        <Text m={0} display={{ base: "none", md: "block" }} className='lead fw-normal'>Welcome, <Text as="span" color="orange.500">{name}</Text></Text>
         <BiLogOut onClick={logout} color='red' _hover={{color:"black"}} className='fs-4' />
       </Flex>
       <OptionCard />

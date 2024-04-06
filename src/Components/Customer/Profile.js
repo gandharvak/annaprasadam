@@ -64,9 +64,9 @@ const Profile = () => {
     return (
         <>
             <div className='container d-flex justify-content-center'>
-                <Flex className='animate__animated animate__fadeIn gap-4'>
-                    <div className='border rounded p-3 position-relative mb-2'>
-                        <div className='d-flex align-items-center gap-3'>
+                <Flex className='animate__animated animate__fadeIn' gap="4" wrap="wrap" justifyContent="center">
+                    <div className='border rounded p-3 position-relative mb-2 bg-white'>
+                        <Flex className='d-flex align-items-center gap-3'>
                             <div>
                                 <MdOutlineRestaurant className='fs-1' color='orange' />
                             </div>
@@ -80,7 +80,7 @@ const Profile = () => {
                                     <Text m="0" fontSize='xl'>{data.price}</Text>
                                 </Flex>
                             </div>
-                        </div>
+                        </Flex>
                         <hr></hr>
                         <div className='text-center'>
                             <div className='mt-2'>
@@ -92,7 +92,7 @@ const Profile = () => {
                             <a href={data.location}><p className='fs-5 fw-normal mt-3' style={{ cursor: "pointer" }}>Find on Map <BsPinMapFill className='fs-4 d-inline' /></p></a>
                         </div>
                         <Badge ml='1' colorScheme='orange' p="1" position="absolute" top="-2" right="4">
-                       <AiFillStar className='d-inline'/> {data.stars}
+                            <AiFillStar className='d-inline' /> {data.stars}
                         </Badge>
                     </div>
                     <div>

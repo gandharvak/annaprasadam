@@ -67,7 +67,7 @@ const ReviewForm = ({ email }) => {
     }
     return (
         <>
-            <section className='login border p-3 rounded animate__animated animate__fadeIn'>
+            <section className='login border bg-white p-3 rounded animate__animated animate__fadeIn'>
                 <h3 className='text-center mb-4'>Review</h3>
                 <div className='m-auto'>
                     {hasRated && <div className='d-flex justify-content-center py-2'>

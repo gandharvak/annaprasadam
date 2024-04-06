@@ -38,7 +38,7 @@ const ReviewSection = () => {
 
             <hr />
             {data.length === 0 && <p className='lead fw-normal'>No Reviews</p>}
-            <Flex wrap="wrap" gap="4">
+            <Flex wrap="wrap" justifyContent="center" gap="4">
                 {
 
                     data.map((element) => {
