@@ -1,0 +1,127 @@
+:root {
+  --col-prim: #CB202D;
+  --col-sec: #2D2D2D;
+}
+
+.bg-prim {
+  background-color: var(--col-prim);
+}
+
+.col-prim {
+  color: var(--col-prim);
+}
+
+.hover:hover {
+  transition: 0.3s;
+  color: var(--col-sec);
+}
+
+.search{
+  max-width: 30rem;
+}
+
+.search:focus{
+  box-shadow: none;
+  border-color: var(--col-prim);
+}
+
+
+.btn {
+  background-color: var(--col-prim);
+  border: none;
+  padding: .5rem 1rem;
+}
+
+.btn:hover {
+  background-color: var(--col-sec);
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.slider {
+  height: 100vh;
+}
+
+.form {
+  width: 25rem;
+}
+
+.card:hover {
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+i {
+  cursor: pointer;
+  transition-duration: .5s;
+}
+
+i:hover {
+  color: var(--col-prim);
+}
+
+.filter-cat li:hover {
+  color: var(--col-prim);
+}
+
+.bg-hero {
+  height: 35rem;
+  width: 100%;
+  
+  background: linear-gradient(rgba(22, 0, 22, 0.6), rgb(0, 0, 0)), url(https://img.freepik.com/free-photo/indian-dhal-spicy-curry-bowl-spices-herbs-rustic-black-wooden-table_2829-18716.jpg?w=1380&t=st=1678609979~exp=1678610579~hmac=fe7207cd095084564554c31e8e587a58d762492fd7b69632e32a9dbe7f695302);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h3{
+  padding:5px;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+
+/* CSS to make Owner Dashboard Responsive */
+.menu-btn{
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .responsive-side{
+    display: none;
+    z-index: 5;
+    width: 60vw;
+    position: absolute;
+  }
+  .menu-btn{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 1rem;
+  }
+}
+
+/* General CSS to display or hide any component throught classes*/
+.show-component{
+  display: block;
+}
+
+.hide-component{
+  display: none;
+}
+
+/* CSS for Hamburger Menu Button */
+.ham-btn{
+  transition-duration: .5s;
+  background-image: url("./img/menu-btn.png");
+  background-size: cover;
+}
+
+.cross-btn{
+  transition-duration: .5s;
+  background-image: url("./img/close-btn.png");
+  background-size: cover;
+}

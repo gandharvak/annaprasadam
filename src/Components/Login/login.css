@@ -1,0 +1,19 @@
+.form-active {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #ED8936;
+}
+
+.login {
+    width: 20rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
