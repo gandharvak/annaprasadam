@@ -37,7 +37,7 @@ const AllMenus = () => {
       <h2 className='text-center mt-3 mb-3 py-1'>Today's Menu</h2>
       <Flex wrap="wrap" justifyContent="center" gap="4">
         {
-          menus == [] ? 
+          menus.length===0 ? 
           <div className='m-auto mt-3'>
               <h3 className='col-prim animate__animated animate__shakeX'>No Items</h3>
             </div>

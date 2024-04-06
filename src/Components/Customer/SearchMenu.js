@@ -50,7 +50,7 @@ const SearchMenu = () => {
                 </>
             }
             {
-                results.length == 0 && <h3 className='mb-3 mt-3 py-1'> No Results </h3>
+                results.length === 0 && <h3 className='mb-3 mt-3 py-1'> No Results </h3>
             }
         </div>
     )

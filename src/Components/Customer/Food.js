@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Button, Radio, RadioGroup, Stack, Flex, Box
+  Button, Radio, RadioGroup, Stack, Flex
 } from '@chakra-ui/react'
 
 const Food = ({ setFilterCategory }) => {

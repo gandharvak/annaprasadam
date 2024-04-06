@@ -14,7 +14,6 @@ import UpdateProfileForm from './Components/Owner Dashbord/UpdateProfileForm';
 import AllMenus from './Components/Customer/AllMenus.js';
 import SearchMenu from './Components/Customer/SearchMenu.js';
 import Filter from './Components/Customer/Filter.js';
-import Nav from './Components/Customer/Nav.js';
 import Banner from './Components/Customer/Banner.js'
 function App() {
   const router = createBrowserRouter([

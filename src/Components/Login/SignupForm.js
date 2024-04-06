@@ -84,7 +84,7 @@ export const SignupForm = () => {
           if (!data.error) {
             localStorage.setItem("auth_token", data.auth_token);
             localStorage.setItem("role", data.role);
-            if (formValue.role == "customer") {
+            if (formValue.role === "customer") {
               navigate("/home");
             } else {
               navigate("/dashboard");
@@ -186,7 +186,7 @@ export const SignupForm = () => {
                   <Button colorScheme="orange" type="submit" mb={2}>
                     Sign Up
                   </Button>
-                  <Link to="/">
+                  <Link to="/login">
                       <Text className="text-center">
                         Already have an account?{" "}
                         <Text as='span' color="orange.500">Login</Text>

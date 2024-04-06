@@ -62,7 +62,7 @@ export const LoginForm = () => {
                     if (!data.error) {
                         localStorage.setItem("auth_token", data.auth_token);
                         localStorage.setItem("role", data.role);
-                        if (formValue.role == 'customer') {
+                        if (formValue.role === 'customer') {
                             navigate("/customer");
 
                         }
@@ -94,7 +94,7 @@ export const LoginForm = () => {
     const [activeTab, setActiveTab] = useState(1);
 
     const handleTabClick = (tabIndex) => {
-        if (tabIndex == 1) {
+        if (tabIndex === 1) {
             setFormValue({
                 email: formValue.email,
                 password: formValue.password,
@@ -133,8 +133,8 @@ export const LoginForm = () => {
                                 <Input  focusBorderColor='orange.300' type="password" id="password" name="password" value={formValue.password} onChange={handleChange} className="form-control search" />
                             </div>
                             <div className='text-center d-flex flex-column'>
-                                <Button colorScheme='orange' onClick={(e) => { e.preventDefault(); login() }} className="btn btn-primary mb-2">Login</Button>
-                                <Link to='/signup'><button><a className='text-center'>Sign Up</a></button></Link>
+                                <Button colorScheme='orange' onClick={(e) => { e.preventDefault(); login() }}>Login</Button>
+                                <Link to='/signup'>Signup</Link>
                             </div>
                         </form>
                     </div>

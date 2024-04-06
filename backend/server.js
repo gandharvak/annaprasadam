@@ -39,5 +39,5 @@ app.get('/', (req, res) => {
 app.use("/", userRoutes);
 
 app.listen(port, () => {
-    console.log(`Codies Mess Backend Listening on Port ${port}...`)
+    console.log(`Backend is Listening on Port ${port}...`)
 })
