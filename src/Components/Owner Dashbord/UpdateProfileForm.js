@@ -19,7 +19,7 @@ const UpdateProfileForm = () => {
             // eslint-disable-next-line no-restricted-globals
             location.assign('/');
         }
-        await fetch('http://localhost:5000/get-owner', {
+        await fetch('https://annaprasadam.onrender.com/get-owner', {
 
             method: "POST",
 

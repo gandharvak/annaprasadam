@@ -10,7 +10,7 @@ const ReviewForm = ({ email }) => {
     const auth_token = localStorage.getItem("auth_token");
 
     const loadReview = async () => {
-        await fetch('http://localhost:5000/check-rate', {
+        await fetch('https://annaprasadam.onrender.com/check-rate', {
 
             method: "POST",
 

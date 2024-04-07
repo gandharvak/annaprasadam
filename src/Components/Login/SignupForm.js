@@ -70,7 +70,7 @@ export const SignupForm = () => {
         setRerender(!rerender);
       }, 5000);
     } else {
-      await fetch("http://localhost:5000/signup", {
+      await fetch("https://annaprasadam.onrender.com/signup", {
         method: "POST",
 
         headers: {

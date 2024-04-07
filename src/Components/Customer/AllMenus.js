@@ -9,7 +9,7 @@ const AllMenus = () => {
 
   const loadMenu = async () => {
     try {
-      await fetch('http://localhost:5000/all-menu', {
+      await fetch('https://annaprasadam.onrender.com/all-menu', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'

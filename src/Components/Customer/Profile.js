@@ -30,7 +30,7 @@ const Profile = () => {
         if (!findEmail) {
             navigate('/home');
         }
-        await fetch('http://localhost:5000/get-hotel', {
+        await fetch('https://annaprasadam.onrender.com/get-hotel', {
 
             method: "POST",
 

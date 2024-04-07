@@ -60,7 +60,7 @@ const UpdateMenuForm = () => {
     const handleSubmit = async () => {
         try {
             let auth_token = localStorage.getItem('auth_token');
-            await fetch('http://localhost:5000/update-menu', {
+            await fetch('https://annaprasadam.onrender.com/update-menu', {
 
                 method: "POST",
 
