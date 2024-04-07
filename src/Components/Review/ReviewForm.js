@@ -47,7 +47,7 @@ const ReviewForm = ({ email }) => {
     };
 
     const rate = async () => {
-        await fetch('http://localhost:5000/rate-mess', {
+        await fetch('https://annaprasadam.onrender.com/rate-mess', {
 
             method: "POST",
 
