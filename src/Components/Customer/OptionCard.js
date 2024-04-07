@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom';
 const OptionCard = () => {
 
   return (
-    <Flex justifyContent="center" wrap="wrap" gap="4">
+    <Flex justifyContent="center" wrap="wrap" gap="4" display={{ base: "none", md: "flex" }}>
       <Link as={NavLink} to="/customer">
         <Button colorScheme='orange' leftIcon={<MdOutlineFoodBank />} >All Menus</Button>
       </Link>
