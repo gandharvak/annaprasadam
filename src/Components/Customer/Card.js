@@ -15,9 +15,8 @@ const Card = ({ email, name, menu, price, stars }) => {
         navigate('/customer/profile');
     }
     return (
-        <>
             <ChakraCard key={email} className='animate__animated animate__flipInY' width="200px" p="4" textAlign="center">
-                <Flex className='card-body text-center' flexDirection="column">
+                <Flex className='card-body text-center' flexDirection="column" position="relative">
                     <Heading as='h1' size='md' color="orange.600">{capitalizeFirstLetter(name)}</Heading>
 
                     <Text m="0" fontSize='xl'>{menu}</Text>
@@ -26,13 +25,12 @@ const Card = ({ email, name, menu, price, stars }) => {
                         <BsCurrencyRupee className='d-inline' />
                         <Text m="0" fontSize='xl'>{price}</Text>
                     </Flex>
-                    <Button onClick={openProfile} colorScheme='orange'>Explore</Button>
+                    <Button onClick={openProfile} colorScheme='orange' mt="auto">Explore</Button>
                 </Flex>
                 <Badge ml='1' colorScheme='orange' p="1" position="absolute" top="-2" right="4">
                        <AiFillStar className='d-inline'/> {stars}
                         </Badge>
             </ChakraCard>
-        </>
     )
 }
 
