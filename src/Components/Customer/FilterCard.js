@@ -5,6 +5,7 @@ import {
 } from '@chakra-ui/react'
 
 const FilterCard = ({ name, type, price }) => {
+  console.log("Type", type)
   return (
     <Card className='animate__animated animate__flipInY' width="200px" p="4" textAlign="center">
       <Box>

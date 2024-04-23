@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Heading, Text, Button, Radio, RadioGroup, Stack, Input
+  Heading, Text, Button, Radio, RadioGroup, Stack, Input,
+  Box
 } from '@chakra-ui/react'
+import BG from '../../img/bg1.png'
+
 export const SignupForm = () => {
   const apiUrl = process.env.REACT_APP_API_URL;
   const [isLoading, setIsLoading] = useState(false)
@@ -131,9 +134,8 @@ export const SignupForm = () => {
   };
 
   return (
-    <>
-      <div className='d-flex justify-content-center align-items-center' style={{ height: "100vh" }}>
-        <div className="d-flex flex-column align-items-center mx-5">
+      <Box className='d-flex justify-content-center align-items-center' minH="100vh" bgImage={BG}>
+        <div className="d-flex flex-column align-items-center mx-5 bg-white">
           <Heading color="orange.500">Anna<Text as="span" color="orange.400">Prasadam</Text></Heading>
 
           <section className="m-auto login mt-3 border p-3 rounded animate__animated animate__fadeIn">
@@ -216,7 +218,6 @@ export const SignupForm = () => {
             </div>
           )}
         </div>
-      </div>
-    </>
+      </Box>
   );
 };

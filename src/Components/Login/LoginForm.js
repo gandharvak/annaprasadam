@@ -3,15 +3,18 @@ import './login.css'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import {
-Heading,
-Button,
-Text, 
-Input
+    Heading,
+    Button,
+    Text,
+    Input,
+    Box,
+    Flex,
 } from '@chakra-ui/react'
+import BG from '../../img/bg1.png'
 
 export const LoginForm = () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
-  const [isLoading, setIsLoading] = useState(false)
+    const apiUrl = process.env.REACT_APP_API_URL;
+    const [isLoading, setIsLoading] = useState(false)
 
     const navigate = useNavigate();
     const [rerender, setRerender] = useState(false);
@@ -48,7 +51,7 @@ export const LoginForm = () => {
 
     const login = async (e) => {
         e.preventDefault();
-       
+
         setIsLoading(true);
         console.log(formValue)
         if (!isValid()) {
@@ -123,11 +126,10 @@ export const LoginForm = () => {
     }
 
     return (
-        <>
-        <div className='d-flex justify-content-center align-items-center' style={{height: "100vh"}}>
-            <div className='d-flex flex-column align-items-center mx-5'>
+        <Box className='d-flex justify-content-center align-items-center' minH="100vh" bgImage={BG}>
+            <div className='d-flex flex-column align-items-center'>
                 <Heading color="orange.500">Anna<Text as="span" color="orange.400">Prasadam</Text></Heading>
-                <section className='login border p-3 rounded animate__animated animate__fadeIn'>
+                <section className='login border p-3 rounded animate__animated animate__fadeIn bg-white'>
                     <h3 className='text-center mb-4'>Login</h3>
                     <div className='m-auto'>
                         <div className='d-flex gap-5 mb-4 justify-content-center align-item-center'>
@@ -137,15 +139,18 @@ export const LoginForm = () => {
                         <form>
                             <div className="mb-3">
                                 <label className="form-label">Email address</label>
-                                <Input  focusBorderColor='orange.300' type="email" className="form-control search" id="email" name="email" value={formValue.email} onChange={handleChange} aria-describedby="emailHelp" />
+                                <Input focusBorderColor='orange.300' type="email" className="form-control search" id="email" name="email" value={formValue.email} onChange={handleChange} aria-describedby="emailHelp" />
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Password</label>
-                                <Input  focusBorderColor='orange.300' type="password" id="password" name="password" value={formValue.password} onChange={handleChange} className="form-control search" />
+                                <Input focusBorderColor='orange.300' type="password" id="password" name="password" value={formValue.password} onChange={handleChange} className="form-control search" />
                             </div>
                             <div className='text-center d-flex flex-column'>
                                 <Button colorScheme='orange' onClick={login} isLoading={isLoading}>Login</Button>
-                                <Link to='/signup'>Signup</Link>
+                                <Flex gap={2} justifyContent="center" mt={4}>
+                                    <Text>Don't have an account?</Text>
+                                    <Link to='/signup'>Signup</Link>
+                                </Flex>
                             </div>
                         </form>
                     </div>
@@ -155,9 +160,7 @@ export const LoginForm = () => {
                         {error.message}
                     </div>
                 }
-                </div>
             </div>
-            
-        </>
+        </Box>
     )
 }

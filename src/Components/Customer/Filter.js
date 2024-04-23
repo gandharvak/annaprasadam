@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Food from "./Food";
 import FilterCard from "./FilterCard";
-import Menu from "../../Menu";
 import { nanoid } from "nanoid";
 import { Flex } from "@chakra-ui/react";
-import { fetchAllMenus } from "../../Controllers/CustomerController/fetchAllMenus.js";
 
 const Filter = () => {
   const [menuItems, setMenuItems] = useState([]);
