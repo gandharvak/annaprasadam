@@ -10,6 +10,9 @@ Input
 } from '@chakra-ui/react'
 
 export const LoginForm = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const [isLoading, setIsLoading] = useState(false)
+
     const navigate = useNavigate();
     const [rerender, setRerender] = useState(false);
 
@@ -43,12 +46,16 @@ export const LoginForm = () => {
         role: 'customer'
     });
 
-    const login = async () => {
+    const login = async (e) => {
+        e.preventDefault();
+       
+        setIsLoading(true);
         console.log(formValue)
         if (!isValid()) {
             setTimeout(() => { setError({ error: false, message: null }); setRerender(!rerender); }, 5000);
+            setIsLoading(false)
         } else {
-            await fetch('https://annaprasadam.onrender.com/login', {
+            await fetch(`${apiUrl}/login`, {
 
                 method: "POST",
 
@@ -64,20 +71,24 @@ export const LoginForm = () => {
                         localStorage.setItem("role", data.role);
                         if (formValue.role === 'customer') {
                             navigate("/customer");
+                            setIsLoading(false);
 
                         }
                         else {
                             navigate("/dashboard");
+                            setIsLoading(false);
                         }
                     }
                     else {
                         setError({ error: true, message: "Invalid Credentials!" })
                         setTimeout(() => { setError({ error: false, message: null }); setRerender(!rerender); }, 2000);
+                        setIsLoading(false)
                     }
                 }).catch(error => {
                     console.log('error')
                     setError({ error: true, message: "Problem occured while reaching the server:( Check your internet connection !" })
                     setTimeout(() => { setError({ error: false, message: null }); setRerender(!rerender); }, 5000);
+                    setIsLoading(false);
                 });
         }
 
@@ -133,7 +144,7 @@ export const LoginForm = () => {
                                 <Input  focusBorderColor='orange.300' type="password" id="password" name="password" value={formValue.password} onChange={handleChange} className="form-control search" />
                             </div>
                             <div className='text-center d-flex flex-column'>
-                                <Button colorScheme='orange' onClick={(e) => { e.preventDefault(); login() }}>Login</Button>
+                                <Button colorScheme='orange' onClick={login} isLoading={isLoading}>Login</Button>
                                 <Link to='/signup'>Signup</Link>
                             </div>
                         </form>

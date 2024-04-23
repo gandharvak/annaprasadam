@@ -5,12 +5,13 @@ import { useEffect } from 'react';
 import { Button, Textarea
 } from '@chakra-ui/react'
 const ReviewForm = ({ email }) => {
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     const [hasRated, setHasRated] = useState(false);
     const auth_token = localStorage.getItem("auth_token");
 
     const loadReview = async () => {
-        await fetch('https://annaprasadam.onrender.com/check-rate', {
+        await fetch(`${apiUrl}/check-rate`, {
 
             method: "POST",
 
@@ -47,7 +48,7 @@ const ReviewForm = ({ email }) => {
     };
 
     const rate = async () => {
-        await fetch('https://annaprasadam.onrender.com/rate-mess', {
+        await fetch(`${apiUrl}/rate-mess`, {
 
             method: "POST",
 

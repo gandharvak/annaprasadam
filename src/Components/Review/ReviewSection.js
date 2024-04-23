@@ -6,11 +6,12 @@ import {
     Heading, Flex
 } from '@chakra-ui/react'
 const ReviewSection = () => {
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     const [data, setData] = useState([]);
     const loadData = async () => {
         let email = localStorage.getItem("findEmail");
-        await fetch('https://annaprasadam.onrender.com/get-reviews', {
+        await fetch(`${apiUrl}/get-reviews`, {
 
             method: "POST",
 

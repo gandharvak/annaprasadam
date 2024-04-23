@@ -8,6 +8,8 @@ import {
 } from '@chakra-ui/react'
 
 const UpdateMenuForm = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
+const [isLoading, setIsLoading] = useState(false)
 
     const [rerender, setRerender] = useState(false);
     const [notification, setNotification] = useState({
@@ -25,7 +27,7 @@ const UpdateMenuForm = () => {
             // eslint-disable-next-line no-restricted-globals
             location.assign('/');
         }
-        await fetch('http://localhost:5000/get-menu', {
+        await fetch(`${apiUrl}/get-menu`, {
 
             method: "POST",
 
@@ -58,9 +60,10 @@ const UpdateMenuForm = () => {
     }
 
     const handleSubmit = async () => {
+        setIsLoading(true)
         try {
             let auth_token = localStorage.getItem('auth_token');
-            await fetch('https://annaprasadam.onrender.com/update-menu', {
+            await fetch(`${apiUrl}/update-menu`, {
 
                 method: "POST",
 
@@ -78,14 +81,16 @@ const UpdateMenuForm = () => {
                     if (!data.error) {
                         setNotification({ state: true, message: "Menu Updated Successfully!" })
                         setTimeout(() => { setNotification({ state: false, message: null }); setRerender(!rerender); }, 2000);
+                        setIsLoading(false);
                     }
 
                 }).catch(error => {
                     console.log('error')
-
+                    setIsLoading(false);
                 });
         } catch (error) {
             console.log(error)
+            setIsLoading(false);
         }
     }
 
@@ -109,7 +114,7 @@ const UpdateMenuForm = () => {
                             <input type="text" className="form-control search" id="price" name="price" value={formValue.price} onChange={handleChange} />
                         </div>
                         <div className='text-center'>
-                            <Button colorScheme="orange" onClick={(e) => { e.preventDefault(); handleSubmit() }} className="mb-2">Update</Button>
+                            <Button isLoading={isLoading} colorScheme="orange" onClick={(e) => { e.preventDefault(); handleSubmit() }} className="mb-2">Update</Button>
                         </div>
                     </form>
                 </Card>

@@ -4,6 +4,8 @@ import {
     Button, Input, Flex
 } from '@chakra-ui/react'
 const SearchMenu = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
@@ -14,7 +16,7 @@ const SearchMenu = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        await fetch('https://annaprasadam.onrender.com/find-menu', {
+        await fetch(`${apiUrl}/find-menu`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

@@ -7,6 +7,8 @@ import {
     Card
 } from '@chakra-ui/react'
 const UpdateProfileForm = () => {
+    const apiUrl = process.env.REACT_APP_API_URL;
+    const [isLoading, setIsLoading] = useState(false)
     const [rerender, setRerender] = useState(false);
     const [notification, setNotification] = useState({
         state: false,
@@ -19,7 +21,7 @@ const UpdateProfileForm = () => {
             // eslint-disable-next-line no-restricted-globals
             location.assign('/');
         }
-        await fetch('https://annaprasadam.onrender.com/get-owner', {
+        await fetch(`${apiUrl}/get-owner`, {
 
             method: "POST",
 
@@ -64,9 +66,10 @@ const UpdateProfileForm = () => {
 
     //Update Owner
     const handleSubmit = async () => {
+        setIsLoading(true)
         try {
             let auth_token = localStorage.getItem('auth_token');
-            await fetch('http://localhost:5000/update-owner', {
+            await fetch(`${apiUrl}/update-owner`, {
 
                 method: "POST",
 
@@ -87,14 +90,17 @@ const UpdateProfileForm = () => {
                     if (!data.error) {
                         setNotification({ state: true, message: "Profile Updated Successfully!" })
                         setTimeout(() => { setNotification({ state: false, message: null }); setRerender(!rerender); }, 2000);
+                        setIsLoading(false)
                     }
 
                 }).catch(error => {
                     console.log('error')
+                    setIsLoading(false)
 
                 });
         } catch (error) {
             console.log(error)
+            setIsLoading(false)
         }
     }
 
@@ -108,8 +114,8 @@ const UpdateProfileForm = () => {
             <Flex minH="100vh" justifyContent="center" alignItems="center" flexDirection="column" className='animate__animated animate__fadeIn'>
 
 
-            <Card style={{ minWidth: "400px" }} p="4"  boxShadow='lg'>
-                <Heading color="orange.500" className='text-center' mb="4">Update Profile</Heading>
+                <Card style={{ minWidth: "400px" }} p="4" boxShadow='lg'>
+                    <Heading color="orange.500" className='text-center' mb="4">Update Profile</Heading>
                     <form>
                         <div className="mb-3">
                             <label className="form-label">Name</label>
@@ -127,16 +133,17 @@ const UpdateProfileForm = () => {
                             <label className="form-label">Location</label>
                             <input type="text" id="location" name="location" value={formValue.location} onChange={handleChange} className="form-control search" />
                         </div>
-                        <div className="mb-3">
+                        {/* <div className="mb-3">
                             <label className="form-label">Password</label>
                             <input type="text" id="password" name="password" value={formValue.password} onChange={handleChange} className="form-control search" />
-                        </div>
+                        </div> */}
                         <div className='text-center d-flex flex-column'>
                             <Button
-                            colorScheme="orange"
-                            onClick={(e) => {
-                                e.preventDefault(); handleSubmit()
-                            }} className="mb-2">Update</Button>
+                            isLoading={isLoading}
+                                colorScheme="orange"
+                                onClick={(e) => {
+                                    e.preventDefault(); handleSubmit()
+                                }} className="mb-2">Update</Button>
                         </div>
                     </form>
                 </Card>

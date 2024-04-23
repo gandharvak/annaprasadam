@@ -27,7 +27,8 @@ const Nav = () => {
 
   const loadName = async () => {
     let auth_token = localStorage.getItem('auth_token');
-    await fetch('https://annaprasadam.onrender.com/get-customer', {
+    const apiUrl = process.env.REACT_APP_API_URL;
+    await fetch(`${apiUrl}/get-customer`, {
 
       method: "POST",
 

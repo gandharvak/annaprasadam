@@ -16,6 +16,7 @@ import SearchMenu from './Components/Customer/SearchMenu.js';
 import Filter from './Components/Customer/Filter.js';
 import Banner from './Components/Customer/Banner.js'
 function App() {
+  const apiUrl = process.env.REACT_APP_API_URL;
   const router = createBrowserRouter([
     {
       path: "/login",

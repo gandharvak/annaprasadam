@@ -6,6 +6,9 @@ import {
   Heading, Text, Button, Radio, RadioGroup, Stack, Input
 } from '@chakra-ui/react'
 export const SignupForm = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const [isLoading, setIsLoading] = useState(false)
+
   const navigate = useNavigate();
 
   const isValid = () => {
@@ -62,6 +65,7 @@ export const SignupForm = () => {
   };
 
   const handleSubmit = async (e) => {
+    setIsLoading(true)
     e.preventDefault();
     console.log(formValue);
     if (!isValid()) {
@@ -69,8 +73,9 @@ export const SignupForm = () => {
         setError({ error: false, message: null });
         setRerender(!rerender);
       }, 5000);
+      setIsLoading(false)
     } else {
-      await fetch("https://annaprasadam.onrender.com/signup", {
+      await fetch(`${apiUrl}/signup`, {
         method: "POST",
 
         headers: {
@@ -85,9 +90,13 @@ export const SignupForm = () => {
             localStorage.setItem("auth_token", data.auth_token);
             localStorage.setItem("role", data.role);
             if (formValue.role === "customer") {
-              navigate("/home");
+              navigate("/customer");
+              setIsLoading(false)
+
             } else {
               navigate("/dashboard");
+              setIsLoading(false)
+
             }
           } else {
             setError({
@@ -99,6 +108,8 @@ export const SignupForm = () => {
               setError({ error: false, message: null });
               setRerender(!rerender);
             }, 2000);
+            setIsLoading(false)
+
           }
         })
         .catch((error) => {
@@ -112,7 +123,10 @@ export const SignupForm = () => {
             setError({ error: false, message: null });
             setRerender(!rerender);
           }, 5000);
-        });
+          setIsLoading(false)
+
+        }
+        );
     }
   };
 
@@ -129,7 +143,7 @@ export const SignupForm = () => {
                 <div className="mb-3">
                   <label className="form-label">Name</label>
                   <Input
-                   focusBorderColor='orange.400'
+                    focusBorderColor='orange.400'
                     type="name"
                     id="name"
                     name="name"
@@ -142,7 +156,7 @@ export const SignupForm = () => {
                 <div className="mb-3">
                   <label className="form-label">Email address</label>
                   <Input
-                   focusBorderColor='orange.400'
+                    focusBorderColor='orange.400'
                     type="email"
                     id="email"
                     name="email"
@@ -155,25 +169,25 @@ export const SignupForm = () => {
                 <div className="mb-3 d-flex">
                   <label className="form-label me-2">Role</label>
                   <RadioGroup defaultValue='customer'>
-                  <Stack spacing={5} direction='row'>
-                    <Radio colorScheme='orange' value="customer"
-                      id="customer" name="role"
-                      onChange={handleChange}
-                    >
-                      Customer
-                    </Radio>
-                    <Radio colorScheme='orange' value="owner"
-                      id="owner" name="role"
-                      onChange={handleChange}>
-                      Owner
-                    </Radio>
+                    <Stack spacing={5} direction='row'>
+                      <Radio colorScheme='orange' value="customer"
+                        id="customer" name="role"
+                        onChange={handleChange}
+                      >
+                        Customer
+                      </Radio>
+                      <Radio colorScheme='orange' value="owner"
+                        id="owner" name="role"
+                        onChange={handleChange}>
+                        Owner
+                      </Radio>
                     </Stack>
                   </RadioGroup>
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Create Password</label>
                   <Input
-                   focusBorderColor='orange.400'
+                    focusBorderColor='orange.400'
                     type="password"
                     id="password"
                     name="password"
@@ -183,14 +197,14 @@ export const SignupForm = () => {
                   />
                 </div>
                 <div className="text-center d-flex flex-column">
-                  <Button colorScheme="orange" type="submit" mb={2}>
+                  <Button isLoading={isLoading} colorScheme="orange" type="submit" mb={2}>
                     Sign Up
                   </Button>
                   <Link to="/login">
-                      <Text className="text-center">
-                        Already have an account?{" "}
-                        <Text as='span' color="orange.500">Login</Text>
-                      </Text>
+                    <Text className="text-center">
+                      Already have an account?{" "}
+                      <Text as='span' color="orange.500">Login</Text>
+                    </Text>
                   </Link>
                 </div>
               </form>

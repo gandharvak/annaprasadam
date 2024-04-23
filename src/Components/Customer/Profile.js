@@ -10,6 +10,7 @@ import {
     Heading, Text, Flex, Badge
 } from '@chakra-ui/react'
 const Profile = () => {
+    const apiUrl = process.env.REACT_APP_API_URL;
     let navigate = useNavigate()
     const [data, setData] = useState({
         name: "",
@@ -30,7 +31,7 @@ const Profile = () => {
         if (!findEmail) {
             navigate('/home');
         }
-        await fetch('https://annaprasadam.onrender.com/get-hotel', {
+        await fetch(`${apiUrl}/get-hotel`, {
 
             method: "POST",
 

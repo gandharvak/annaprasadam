@@ -5,11 +5,12 @@ import { Flex
 import { nanoid } from 'nanoid'
 
 const AllMenus = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [menus, setMenus] = useState([])
 
   const loadMenu = async () => {
     try {
-      await fetch('https://annaprasadam.onrender.com/all-menu', {
+      await fetch(`${apiUrl}/all-menu`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
