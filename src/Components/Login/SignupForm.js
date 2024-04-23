@@ -135,10 +135,10 @@ export const SignupForm = () => {
 
   return (
       <Box className='d-flex justify-content-center align-items-center' minH="100vh" bgImage={BG}>
-        <div className="d-flex flex-column align-items-center mx-5 bg-white">
+        <div className="d-flex flex-column align-items-center mx-5">
           <Heading color="orange.500">Anna<Text as="span" color="orange.400">Prasadam</Text></Heading>
 
-          <section className="m-auto login mt-3 border p-3 rounded animate__animated animate__fadeIn">
+          <section className="m-auto login mt-3 border bg-white p-3 rounded animate__animated animate__fadeIn">
             <h3 className="text-center mb-4">Sign Up</h3>
             <div className="m-auto">
               <form onSubmit={handleSubmit}>
