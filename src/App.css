@@ -70,7 +70,7 @@ i:hover {
   height: 35rem;
   width: 100%;
   
-  background: linear-gradient(rgba(22, 0, 22, 0.6), rgb(0, 0, 0)), url(https://t4.ftcdn.net/jpg/02/75/39/13/360_F_275391367_Hro3Ql1iFsCNtd86zWYuqa0Qe5cc7goE.jpg);
+  background: linear-gradient(rgba(22, 0, 22, 0.6), rgb(16, 16, 16)), url(https://images.unsplash.com/photo-1711153419402-336ee48f2138?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRoYWxpfGVufDB8fDB8fHww);
   background-repeat: no-repeat;
   background-size: cover;
 }
