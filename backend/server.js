@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const cors = require("cors")
 const app = express()
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://gandharvakulkarni2003:annaprasadam123@cluster0.2kyijgx.mongodb.net/annaprasadam");
+mongoose.connect("mongodb+srv://gandharvakulkarni2003:ru3kBHHOzGi2rsJR@cluster0.2kyijgx.mongodb.net/annaprasadam");
 const customer = require("./models/customer");
 const owner = require("./models/owner");
 const userRoutes = require("./routes/UserRoutes");
